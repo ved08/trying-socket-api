@@ -11,15 +11,12 @@ io.on('connection', socket => {
         console.log(msg)
         io.emit('chat message', msg)
     })
-    socket.on('new user', user => {
-        console.log(user + "Joined")
-    })
     console.log('User Connected');
     socket.on('disconnect', () => {
         console.log('User Disconnected');
     })
 })
 
-http.listen(process.env.PORT, () => {
+http.listen(process.env.PORT || 3000, () => {
   console.log('listening on *:3000');
 });
